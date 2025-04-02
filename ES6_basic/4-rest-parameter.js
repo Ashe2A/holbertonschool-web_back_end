@@ -1,9 +1,7 @@
 export default function returnHowManyArguments(...args) {
-  let res = 0;
+  var res = 0;
   for (const i of args) {
-    if (Number.isInteger(i)) {
-      res += i;
-    }
+    res += 1;
   }
-  return res + 1;
+  return res;
 }
