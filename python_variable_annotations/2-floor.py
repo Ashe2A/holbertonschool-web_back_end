@@ -3,6 +3,7 @@
 Basic annotations - floor
 """
 
+
 def floor(n: float) -> int:
     """Floor of a number
 
