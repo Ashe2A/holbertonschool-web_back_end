@@ -2,10 +2,8 @@
 """
 Basic annotations - floor
 """
-import math
 
-
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """Floor of a number
 
     Args:
@@ -15,4 +13,4 @@ def floor(n: float) -> float:
         float: The single decimal floored
             (i.e. pi floors to 3 and 5.9 floors to 5)
     """
-    return math.floor(n)
+    return int(n)
