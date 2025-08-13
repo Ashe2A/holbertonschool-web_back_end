@@ -2,6 +2,7 @@
 """
 Basic annotations - floor
 """
+import math
 
 
 def floor(n: float) -> float:
@@ -14,4 +15,4 @@ def floor(n: float) -> float:
         float: The single decimal floored
             (i.e. pi floors to 3 and 5.9 floors to 5)
     """
-    return int(n)
+    return math.floor(n)
