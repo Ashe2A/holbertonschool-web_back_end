@@ -59,7 +59,9 @@ class Server:
 
         next_index = None
         if last_index is not None and last_index + 1 <= max_idx:
-            next_index = last_index + 1
+            for i in indexes:
+                if i > last_index:
+                    next_index = i
 
         return {
             "index": index,
