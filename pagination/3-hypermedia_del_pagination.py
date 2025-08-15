@@ -44,7 +44,7 @@ class Server:
         idx_dataset = self.indexed_dataset()
         indexes = sorted(idx_dataset.keys())
 
-        if not index:
+        if index is None:
             index = 0
         assert isinstance(index, int)\
             and 0 <= index <= indexes[len(indexes) - 1]
@@ -57,7 +57,7 @@ class Server:
                 last_index = i
 
         next_index = None
-        if last_index:
+        if last_index is not None:
             for i in indexes:
                 if i > last_index and not next_index:
                     next_index = i
