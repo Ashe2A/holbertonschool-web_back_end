@@ -50,16 +50,14 @@ class Server:
         assert isinstance(index, int) and page_size > 0
 
         page_list = []
-        i = index
-        while len(page_list) < page_size and i <= max_idx:
-            if i in idx_dataset:
+        next_index = index
+        while len(page_list) < page_size:
+            if next_index in idx_dataset:
                 page_list.append(idx_dataset[i])
-                last_index = i
-            i += 1
+            next_index += 1
 
-        next_index = None
-        if i <= max_idx:
-            next_index = i
+        if next_index >= max_idx:
+            next_index = None
 
         return {
             "index": index,
