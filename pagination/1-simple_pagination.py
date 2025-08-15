@@ -29,7 +29,8 @@ class Server:
 
         Args:
             page (int, optional): Page displayed. Defaults to 1.
-            page_size (int, optional): Number of elements in the page. Defaults to 10.
+            page_size (int, optional): Number of elements in the page.
+            Defaults to 10.
 
         Returns:
             list[list]: List of the elements from the data_set
@@ -38,14 +39,14 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         page_list = []
         dataset = self.dataset()
-        idx_rng = self.index_range(page, page_size)
+        idx_rng = index_range(page, page_size)
         if idx_rng[1] < len(dataset):
             for i in range(idx_rng[0], idx_rng[1]):
                 page_list.append(dataset[i])
         return page_list
 
-    def index_range(self, page: int, page_size: int) -> tuple[int]:
-        """Simple helper function
+    def index_range(page: int, page_size: int) -> tuple[int]:
+        """Simple helper
 
         Args:
             page (int): Page displayed
