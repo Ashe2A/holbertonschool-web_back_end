@@ -45,7 +45,7 @@ class Server:
                 page_list.append(dataset[i])
         return page_list
 
-    def index_range(page: int, page_size: int) -> tuple[int]:
+    def index_range(self, page: int, page_size: int) -> tuple[int]:
         """Simple helper
 
         Args:
