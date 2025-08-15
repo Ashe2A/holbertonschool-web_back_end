@@ -48,20 +48,19 @@ class Server:
         if index is None:
             index = 0
         assert isinstance(index, int) and 0 <= index <= max_idx
-        assert isinstance(index, int) and 0 < page_size
+        assert isinstance(index, int) and page_size > 0
 
         page_list = []
-        last_index = None
-        for i in indexes:
-            if i >= index and len(page_list) < page_size:
+        i = index
+        while len(page_list) < page_size and i <= max_idx:
+            if i in idx_dataset:
                 page_list.append(idx_dataset[i])
                 last_index = i
+            i += 1
 
         next_index = None
-        if last_index is not None and last_index + 1 <= max_idx:
-            for i in indexes:
-                if i > last_index and next_index is None:
-                    next_index = i
+        if i <= max_idx:
+            next_index = i
 
         return {
             "index": index,
