@@ -25,10 +25,26 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        pass
+        """Get Page list
 
+        Args:
+            page (int, optional): Page displayed. Defaults to 1.
+            page_size (int, optional): Number of elements in the page. Defaults to 10.
 
-    def index_range(page: int, page_size: int) -> tuple[int]:
+        Returns:
+            list[list]: List of the elements from the data_set
+        """
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+        page_list = []
+        dataset = self.dataset()
+        idx_rng = self.index_range(page, page_size)
+        if idx_rng[1] < len(dataset):
+            for i in range(idx_rng[0], idx_rng[1]):
+                page_list.append(dataset[i])
+        return page_list
+
+    def index_range(self, page: int, page_size: int) -> tuple[int]:
         """Simple helper function
 
         Args:
