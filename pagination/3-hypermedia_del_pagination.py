@@ -53,7 +53,7 @@ class Server:
         next_index = index
         while len(page_list) < page_size:
             if next_index in idx_dataset:
-                page_list.append(idx_dataset[i])
+                page_list.append(idx_dataset[next_index])
             next_index += 1
 
         if next_index >= max_idx:
