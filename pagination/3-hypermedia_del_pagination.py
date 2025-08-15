@@ -41,12 +41,13 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         idx_dataset = self.indexed_dataset()
+        dataset = self.dataset()
         indexes = sorted(idx_dataset.keys())
         max_idx = max(indexes)
 
         if index is None:
             index = 0
-        assert isinstance(index, int) and 0 <= index <= max_idx
+        assert isinstance(index, int) and 0 <= index <= len(dataset)
         assert isinstance(index, int) and page_size > 0
 
         page_list = []
@@ -56,7 +57,7 @@ class Server:
                 page_list.append(idx_dataset[next_index])
             next_index += 1
 
-        if next_index >= max_idx:
+        if next_index >= len(dataset):
             next_index = None
 
         return {
