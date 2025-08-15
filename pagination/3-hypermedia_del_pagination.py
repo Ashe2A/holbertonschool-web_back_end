@@ -60,12 +60,12 @@ class Server:
         next_index = None
         if last_index is not None and last_index + 1 <= max_idx:
             for i in indexes:
-                if i > last_index:
+                if i > last_index and next_index is None:
                     next_index = i
 
         return {
             "index": index,
-            "next_index": next_index,
+            "data": page_list,
             "page_size": len(page_list),
-            "data": page_list
+            "next_index": next_index
         }
