@@ -42,8 +42,6 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         idx_dataset = self.indexed_dataset()
         dataset = self.dataset()
-        indexes = sorted(idx_dataset.keys())
-        max_idx = max(indexes)
 
         if index is None:
             index = 0
