@@ -58,6 +58,22 @@ class Server:
         return ((page - 1) * page_size, page * page_size)
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+        """Hypermedia pagination
+
+        Args:
+            page (int, optional): Page displayed. Defaults to 1.
+            page_size (int, optional): Number of elements in the page.
+            Defaults to 10.
+
+        Returns:
+            dict: Dictionary containing the following key-value pairs:
+                "page_size": the length of the returned dataset page
+                "page": the current page number
+                "data": the dataset page (equivalent to return from previous task)
+                "next_page": number of the next page, None if no next page
+                "prev_page": number of the previous page, None if no previous page
+                "total_pages": the total number of pages in the dataset as an integer
+        """
         dataset = self.dataset()
         total_pages = math.ceil(len(dataset) / page_size)
         p_size = page_size
