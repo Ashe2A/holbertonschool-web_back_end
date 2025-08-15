@@ -46,7 +46,8 @@ class Server:
 
         if not index:
             index = 0
-        assert isinstance(index, int) and 0 <= index <= indexes[len(indexes) - 1]
+        assert isinstance(index, int)\
+            and 0 <= index <= indexes[len(indexes) - 1]
 
         page_list = []
         last_index = None
