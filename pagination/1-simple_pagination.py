@@ -39,7 +39,7 @@ class Server:
         assert isinstance(page_size, int) and page_size > 0
         page_list = []
         dataset = self.dataset()
-        idx_rng = index_range(page, page_size)
+        idx_rng = self.index_range(page, page_size)
         if idx_rng[1] < len(dataset):
             for i in range(idx_rng[0], idx_rng[1]):
                 page_list.append(dataset[i])
