@@ -56,15 +56,9 @@ class Server:
                 page_list.append(idx_dataset[i])
                 last_index = i
 
-        next_index = None
-        if last_index is not None:
-            for i in indexes:
-                if i > last_index and not next_index:
-                    next_index = i
-
         return {
             "index": index,
-            "data": page_list,
+            "next_index": last_index + 1,
             "page_size": len(page_list),
-            "next_index": next_index
+            "data": page_list
         }
