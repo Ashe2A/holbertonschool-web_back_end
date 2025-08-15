@@ -48,6 +48,7 @@ class Server:
         if index is None:
             index = 0
         assert isinstance(index, int) and 0 <= index <= max_idx
+        assert isinstance(index, int) and 0 < page_size
 
         page_list = []
         last_index = None
