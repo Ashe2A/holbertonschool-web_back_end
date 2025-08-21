@@ -9,11 +9,12 @@ export default class Pricing {
       throw new TypeError('Amount must be a number');
     }
 
+    this._amount = amount;
+
     if (!(currency instanceof Currency)) {
       throw new TypeError('Currency must be a currency');
     }
 
-    this._amount = amount;
     this._currency = currency;
   }
 
