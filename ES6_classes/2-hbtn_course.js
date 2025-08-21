@@ -1,3 +1,4 @@
+// 2. A Course, Getters, and Setters
 export default class HolbertonCourse {
   constructor(name, length, students) {
     this._name = name;
@@ -32,9 +33,11 @@ export default class HolbertonCourse {
   }
 
   set students(value) {
-    if (!Array.isArray(value)
-      || !value.every((element) => typeof element === 'string')) {
-      throw new TypeError('Students must be an array of strings');
+    if (!Array.isArray(value)) {
+      throw new TypeError('Students must be an array');
+    }
+    if (!value.every((element) => typeof element === 'string')) {
+      throw new TypeError('Student must be a string');
     }
     this._students = value;
   }

@@ -1,3 +1,5 @@
+// 1. Let's make some classrooms
+
 /* eslint-disable import/extensions */
 import ClassRoom from './0-classroom.js';
 
