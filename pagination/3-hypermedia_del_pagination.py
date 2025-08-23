@@ -18,7 +18,10 @@ class Server:
         self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
+        """Initial Cached dataset
+
+        Returns:
+            List[List]: The cached dataset
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -30,6 +33,9 @@ class Server:
 
     def indexed_dataset(self) -> Dict[int, List]:
         """Dataset indexed by sorting position, starting at 0
+
+        Returns:
+            Dict[int, List]: Indexed dataset with position sorting
         """
         if self.__indexed_dataset is None:
             dataset = self.dataset()
@@ -47,7 +53,7 @@ class Server:
             page_size (int, optional): Page size. Defaults to 10.
 
         Returns:
-            Dict: _description_
+            Dict: The dictionary of the dynamic pagination data.
         """
         idx_dataset = self.indexed_dataset()
         dataset = self.dataset()
