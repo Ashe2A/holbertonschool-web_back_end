@@ -54,6 +54,10 @@ class Server:
 
         Returns:
             Dict: The dictionary of the dynamic pagination data.
+                - index: the current start index of the return page.
+                - next_index: the next index to query with.
+                - page_size: the current page size.
+                - data: the actual page of the dataset.
         """
         idx_dataset = self.indexed_dataset()
         dataset = self.dataset()
