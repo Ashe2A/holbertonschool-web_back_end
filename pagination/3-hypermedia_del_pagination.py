@@ -46,14 +46,20 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        """
-        Returns a dictionary with the following pagination details:
-        - index: the current start index of the return page.
-        - next_index: the next index to query with.
-        - page_size: the current page size.
-        - data: the actual page of the dataset.
-        """
+        """Get Hyper Index
 
+        Args:
+            index (int, optional): Index of the starting element.
+                Defaults to None.
+            page_size (int, optional): Page size. Defaults to 10.
+
+        Returns:
+            Dict: The dictionary of the dynamic pagination data.
+                - index: the current start index of the return page.
+                - next_index: the next index to query with.
+                - page_size: the current page size.
+                - data: the actual page of the dataset.
+        """
         idx_dataset = self.indexed_dataset()
         dataset = self.dataset()
         indexes = sorted(idx_dataset.keys())
@@ -70,7 +76,8 @@ class Server:
                 last_index = i
 
         next_index = None
-        if last_index is not None and last_index + 1 <= indexes[len(indexes) - 1]:
+        if last_index is not None and\
+           last_index + 1 <= indexes[len(indexes) - 1]:
             for i in indexes:
                 if i > last_index and next_index is None:
                     next_index = i
