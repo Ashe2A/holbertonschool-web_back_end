@@ -7,7 +7,11 @@ Note: use `export PYTHONDONTWRITEBYTECODE=1` in each folder to avoid `__pycache_
 ## Part 3
 ### Week 0
 * [Pagination](pagination/README.md)
+* [NoSQL](NoSQL/README.md)
 
 ### Week 1
 * [ES6 Basics](ES6_basic/README.md)
 * [ES6 Classes](ES6_classes/README.md)
+
+### Week 2
+* [ES6 data manipulation](ES6_data_manipulation/README.md)
