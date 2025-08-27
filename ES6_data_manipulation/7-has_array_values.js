@@ -1,14 +1,14 @@
 export default function hasValuesFromArray(set, array) {
   if (!(set instanceof Set)) {
-    throw TypeError('Set must be... a set');
+    throw new TypeError('Set must be... a set');
   }
   if (!(array instanceof Array)) {
-    throw TypeError('Array must be... an array');
+    throw new TypeError('Array must be... an array');
   }
   for (const i of array) {
     if ((!set.has(i))) {
       return false;
     }
-  };
+  }
   return true;
 }
