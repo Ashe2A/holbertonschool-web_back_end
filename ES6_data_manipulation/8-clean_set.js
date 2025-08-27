@@ -7,15 +7,14 @@ export default function cleanSet(set, startString) {
   }
 
   let res = '';
-  if (startString === '') {
-    return res;
-  }
-  for (const i of set) {
-    if (i.startsWith(startString)) {
-      if (!(res === '')) {
-        res += '-';
+  if (startString !== '') {
+    for (const i of set) {
+      if ((typeof i === 'string') && i.startsWith(startString)) {
+        if (!(res === '')) {
+          res += '-';
+        }
+        res += i.slice(startString.length, i.length);
       }
-      res += i.slice(startString.length);
     }
   }
   return res;
