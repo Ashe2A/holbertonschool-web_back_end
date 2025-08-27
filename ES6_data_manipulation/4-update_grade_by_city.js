@@ -10,6 +10,6 @@ export default function updateStudentGradeByCity(studentList, city, newGrades) {
         newGrade = j.grade;
       }
     });
-    return { ...i, newGrade };
+    return { ...i, grade: newGrade };
   });
 }
