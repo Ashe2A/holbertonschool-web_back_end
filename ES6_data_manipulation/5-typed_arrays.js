@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 export default function createInt8TypedArray(length, position, value) {
   if (typeof (length) !== 'number') {
     throw TypeError('Length is a number');
