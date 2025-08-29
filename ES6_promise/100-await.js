@@ -1,18 +1,17 @@
 /* eslint-disable import/extensions */
-import signUpUser from './4-user-promise';
-import uploadPhoto from './5-photo-reject';
+import { createUser, uploadPhoto } from './utils';
 
 export default async function asyncUploadUser() {
   let photo = null;
   let user = null;
 
   try {
-    photo = await uploadPhoto();
+    user = await createUser();
   } catch {
   }
 
   try {
-    user = await signUpUser();
+    photo = await uploadPhoto();
   } catch {
   }
 
