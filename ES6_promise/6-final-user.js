@@ -15,19 +15,19 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     throw new Error('File name should be a string.');
   }
 
-  const photoPromise = uploadPhoto(fileName);
   const userPromise = signUpUser(firstName, lastName);
+  const photoPromise = uploadPhoto(fileName);
 
-  return Promise.allSettled([photoPromise, userPromise]).then((res) => res.map((i) => {
+  return Promise.allSettled([userPromise, photoPromise]).then((res) => res.map((i) => {
     if (i.status === 'fulfilled') {
-      return ({
+      return {
         status: i.status,
         value: i.value,
-      });
+      };
     }
-    return ({
+    return {
       status: i.status,
       value: i.reason.toString(),
-    });
+    };
   }));
 }
