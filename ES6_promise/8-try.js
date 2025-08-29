@@ -1,6 +1,5 @@
-/* eslint-disable import/extensions */
 export default function divideFunction(numerator, denominator) {
-  if (typeof numerator !== 'number' || denominator !== 'number') {
+  if (typeof numerator !== 'number' || typeof denominator !== 'number') {
     throw new TypeError('Divide numbers please.');
   }
 
