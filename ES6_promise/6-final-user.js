@@ -4,15 +4,15 @@ import uploadPhoto from './5-photo-reject';
 
 export default function handleProfileSignup(firstName, lastName, fileName) {
   if (typeof firstName !== 'string') {
-    throw new Error('First name should be a string.');
+    throw new TypeError('First name should be a string.');
   }
 
   if (typeof lastName !== 'string') {
-    throw new Error('Last name should be a string.');
+    throw new TypeError('Last name should be a string.');
   }
 
   if (typeof fileName !== 'string') {
-    throw new Error('File name should be a string.');
+    throw new TypeError('File name should be a string.');
   }
 
   const userPromise = signUpUser(firstName, lastName);
