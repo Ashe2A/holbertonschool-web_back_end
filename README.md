@@ -15,3 +15,7 @@ Note: use `export PYTHONDONTWRITEBYTECODE=1` in each folder to avoid `__pycache_
 
 ### Week 2
 * [ES6 data manipulation](ES6_data_manipulation/README.md)
+* [ES6 Promises](ES6_promise/README.md)
+
+### Week 3
+* [NodeJS Basics](Node_JS_basic/README.md)
