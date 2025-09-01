@@ -1,21 +1,15 @@
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.setEncoding('utf8');
+
 process.stdin.on('data', (data) => {
   const name = data.toString().trim();
   process.stdout.write(`Your name is: ${name}\n`);
   if (process.stdin.isTTY) {
-    process.stdin.emit('end');
-  } else {
-    process.stdin.emit('exit');
+    process.exit(0);
   }
 });
 
-process.stdin.on('exit', () => {
-  process.stdout.write('This important software is now closing\n');
-  process.stdin.emit('end');
-});
-
 process.stdin.on('end', () => {
-  process.exit(0);
+  process.stdout.write('This important software is now closing\n');
 });
