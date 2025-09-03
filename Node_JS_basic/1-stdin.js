@@ -1,9 +1,11 @@
-console.log('Welcome to Holberton School, what is your name?');
-
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 process.stdin.on('data', (data) => {
-  console.log(`Your name is: ${data}`);
+  process.stdout.write(`Your name is: ${data}`);
+  process.exit(0);
 });
 
-process.stdin.on('end', () => {
-  console.log('This important software is now closing');
+process.on('exit', () => {
+  if (!process.stdin.isTTY) {
+    process.stdout.write('This important software is now closing\n');
+  }
 });
