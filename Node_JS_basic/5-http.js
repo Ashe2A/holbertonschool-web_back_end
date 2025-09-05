@@ -14,7 +14,8 @@ function countStudents(path) {
       const rows = rawData.split('\n').filter((i) => i.trim() !== '');
       const studentList = rows.slice(1).map((i) => i.split(','));
 
-      let res = `Number of students: ${studentList.length}\n`;
+      const res = [];
+      res.push(`Number of students: ${studentList.length}`);
 
       const fieldList = {};
       for (const i of studentList) {
@@ -28,9 +29,9 @@ function countStudents(path) {
 
       for (const i of Object.keys(fieldList)) {
         const fieldStudentList = fieldList[i].join(', ');
-        res += `Number of students in ${i}: ${fieldList[i].length}. List: ${fieldStudentList}\n`;
+        res.push(`Number of students in ${i}: ${fieldList[i].length}. List: ${fieldStudentList}`);
       }
-      resolve(res);
+      resolve(res.join('\n').trim());
     });
   });
 }
@@ -40,16 +41,18 @@ const app = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-type': 'text/plain' });
   if (req.url === '/') {
     res.end('Hello Holberton School!');
+    return;
   }
-  else if (req.url === '/students') {
+  if (req.url === '/students') {
     countStudents(process.argv[2]).then((studentListOutput) => {
       res.end(`This is the list of our students\n${studentListOutput}`);
     }).catch(() => {
-      res.end('Cannot load the database');
+      res.end('This is the list of our students\nCannot load the database');
     });
-  } else {
-    res.end('404 Not found');
+    return;
   }
+  res.writeHead(404, { 'Content-type': 'text/plain' });
+  res.end('Not found');
 });
 
 app.listen(1245);
