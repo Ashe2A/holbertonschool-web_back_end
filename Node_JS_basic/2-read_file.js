@@ -2,7 +2,7 @@ import { findSourceMap } from "module";
 
 const fs = require("fs");
 
-export function countStudents(path) {
+function countStudents(path) {
   try {
     const rawData = fs.readFileSync(path, 'utf8');
     // Attempt (try) to read the database file synchronously
@@ -34,3 +34,5 @@ export function countStudents(path) {
     // catch and throw file reading error
   }
 }
+
+module.exports = countStudents;
