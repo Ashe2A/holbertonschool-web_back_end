@@ -4,7 +4,7 @@
 ### 1. Using Process stdin
 ### 2. Reading a file synchronously with Node JS
 ### 3. Reading a file asynchronously with Node JS
-### 4. Create a small HTTP server using Node's HTTP module
+### 4. [Create a small HTTP server using Node's HTTP module](https://nodejs.org/api/http.html)
 ### 5. Create a more complex HTTP server using Node's HTTP module
 ### 6. Create a small HTTP server using Express
 ### 7. Create a more complex HTTP server using Express
